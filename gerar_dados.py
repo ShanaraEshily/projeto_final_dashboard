@@ -16,7 +16,15 @@ dados = pd.DataFrame({
     'Região': np.random.choice(['Norte', 'Sul', 'Nordeste', 'Sudeste', 'Centro-Oeste'], n),
     'Vendedor': np.random.choice(['Ana Silva', 'Bruno Costa', 'Carla Dias', 'Diego Lima', 
                                   'Eva Santos'], n),
-    'Vendas': np.random.randint([150, 12000], n),
+    'Vendas': np.random.randint(150, 12000, n),
     'Quantidade': np.random.randint(1, 30, n),
     'Custo': np.random.uniform(80, 8000, n)
 })
+
+#Data: 12/03/2026
+#campo calculado
+dados['Lucro'] = dados['Vendas'] - dados['Custo']
+#salvar em CSV
+dados.to_csv('./dados/vendas.csv', index=False)
+
+print("Dados de vendas gerados e salvos em './dados/vendas.csv'")

@@ -14,9 +14,9 @@ visao_geral = st.Page('./pages/visao_geral.py',
                       icon='🏘',
                       default=True)
 
-#analise_vendas = st.Page('./pages/analise_vendas.py',
-#                         title='Análise de Vendas',
-#                         icon='🛍️')
+analise_vendas = st.Page('./pages/analise_vendas.py',
+                        title='Análise de Vendas',
+                        icon='🛍️')
 
 #analise_produtos = st.Page('./pages/analise_produtos.py',
 #                           title='Produtos',
@@ -29,7 +29,8 @@ visao_geral = st.Page('./pages/visao_geral.py',
 #Configurando a navegação entre as páginas
 pg = st.navigation(
     [
-        visao_geral
+        visao_geral,
+        analise_vendas
     ]
 )
 

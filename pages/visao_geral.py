@@ -12,13 +12,13 @@ def carregar_dados():
 #é um dataframe do pandas que contém os dados de vendas
 dados_vendas = carregar_dados()
 
-st.title(":rainbow[𓁹 𓁹 Visão Geral do Negócio]")
+st.title(":blue[𓁹 𓁹 Visão Geral do Negócio]")
 
 #KPIs principais
 col1, col2, col3, col4 = st.columns(4)
 
 #coluna 1 exibe a receita total, formatada como moeda brasileira
-col1.metric(":blue[💰 Receita Total]", f"R$ {dados_vendas['Vendas'].sum():,.2f}")
+col1.metric(":violet[💰 Receita Total]", f"R$ {dados_vendas['Vendas'].sum():,.2f}")
 
 #coluna 2 exibe o lucro total, formatado como moeda brasileira
 col2.metric(":orange[💲 Lucro Total]", f"R$ {dados_vendas['Lucro'].sum():,.2f}")
@@ -85,7 +85,7 @@ st.plotly_chart(fig, width='stretch')
 st.markdown("""
 <style>
 .stApp {
-    background-color: #62227B;
+    background-color: #C14678;
 }
 </style>
 """, unsafe_allow_html=True)

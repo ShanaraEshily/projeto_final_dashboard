@@ -22,6 +22,10 @@ analise_produtos = st.Page('./pages/analise_produtos.py',
                            title='Produtos',
                            icon='🛍')
 
+analise_produtos_professor = st.Page('./pages/analise_produtos_professor.py',
+                           title='Produtos - Professor',
+                           icon='👨🏻‍🏫')
+
 #sobre = st.Page('./pages/sobre.py',
 #                title='Sobre',
 #                icon='𝒊')
@@ -31,7 +35,8 @@ pg = st.navigation(
     [
         visao_geral,
         analise_vendas,
-        analise_produtos
+        analise_produtos,
+        analise_produtos_professor
     ]
 )
 
@@ -57,4 +62,4 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.balloons()
+st.snow()

@@ -16,14 +16,14 @@ dados_vendas = carregar_dados()
 st.title('𖠩 Análise Detalhada de Vendas')
 
 #Filtros para análise
-st.sidebar.header("Filtros de Vendas")
+st.sidebar.header("🏪 Filtros de Vendas")
 
 #Data: 16/03/2026
 
 st.markdown("""
 <style>
 span[data-baseweb="tag"] {
-  background-color: violet !important;
+  background-color: blue !important;
 }
 </style>
 """, unsafe_allow_html=True) #colocar antes dos filtros pra dar cor
@@ -54,13 +54,20 @@ data_range = st.sidebar.date_input(
     max_value=data_max
 )
 
+if len(data_range) == 2:
+    data_inicio = pd.to_datetime(data_range[0])
+    data_fim = pd.to_datetime(data_range[1])
+else:
+    st.warning("Por favor, selecione um intervalo de datas válido")
+    st.stop()
+
 #aplicando os filtros selecionados pelo usuário para criar um dataframe filtrado
 dados_filtrados = dados_vendas[
     (dados_vendas["Região"].isin(regioes)) &
     (dados_vendas["Categoria"].isin(categorias)) &
     (dados_vendas["Data"].between(
-        pd.to_datetime(data_range[0]),
-        pd.to_datetime(data_range[1])
+        data_inicio,
+        data_fim
         ))
 ]
 
@@ -106,7 +113,7 @@ with v_col2:
         y = "Receita",
         title= "Receita e Lucro por Vendedor",
         color="Lucro",
-        color_continuous_scale=px.colors.sequential.Sunset
+        color_continuous_scale=px.colors.sequential.Blues
     )
     st.plotly_chart(fig, width='stretch')
 
@@ -156,7 +163,7 @@ with st.expander("Dados Detalhados"):
     csv = convert_for_download(dados_filtrados)
 
     st.download_button(
-        label="Download CSV",
+        label="Download Dados Detalhados",
         data=csv,
         file_name="dados_filtrados.csv",
         mime="text/csv",
@@ -164,11 +171,4 @@ with st.expander("Dados Detalhados"):
     )
 
 #➜]
-######################################
-st.markdown("""
-<style>
-.stApp {
-    background-color: #D26F8D;
-}
-</style>
-""", unsafe_allow_html=True)
+

@@ -12,7 +12,7 @@ def carregar_dados():
 #é um dataframe do pandas que contém os dados de vendas
 dados_vendas = carregar_dados()
 
-st.title(":blue[𓁹 𓁹 Visão Geral do Negócio]")
+st.title("𓁹 𓁹 Visão Geral do Negócio")
 
 #KPIs principais
 col1, col2, col3, col4 = st.columns(4)
@@ -63,7 +63,7 @@ with colB:
     st.plotly_chart(fig, width='stretch')
 
 #Top 5 produtos
-st.subheader(":rainbow[🧾 Top 5 Produtos por Receita]")
+st.subheader("🧾 Top 5 Produtos por Receita")
 
 #Agrupa os dados por produto e soma as vendas, depois de selecionar os 5 produtos com maior
 #receita
@@ -77,15 +77,8 @@ top5_produtos = dados_vendas.groupby('Produto')['Vendas'].sum().nlargest(5).rese
 fig = px.bar(top5_produtos, x = 'Produto', y = 'Vendas',
              title='Top 5 Produtos',
              color='Vendas',
-             color_continuous_scale='pinkyl')
+             color_continuous_scale='blues')
 
 st.plotly_chart(fig, width='stretch')
 
 ###############################################################
-st.markdown("""
-<style>
-.stApp {
-    background-color: #C14678;
-}
-</style>
-""", unsafe_allow_html=True)

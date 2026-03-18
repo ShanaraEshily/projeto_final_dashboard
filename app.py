@@ -16,11 +16,11 @@ visao_geral = st.Page('./pages/visao_geral.py',
 
 analise_vendas = st.Page('./pages/analise_vendas.py',
                         title='Análise de Vendas',
-                        icon='🛍️')
+                        icon='📊')
 
-#analise_produtos = st.Page('./pages/analise_produtos.py',
-#                           title='Produtos',
-#                           icon='🛒')
+analise_produtos = st.Page('./pages/analise_produtos.py',
+                           title='Produtos',
+                           icon='🛍')
 
 #sobre = st.Page('./pages/sobre.py',
 #                title='Sobre',
@@ -30,8 +30,31 @@ analise_vendas = st.Page('./pages/analise_vendas.py',
 pg = st.navigation(
     [
         visao_geral,
-        analise_vendas
+        analise_vendas,
+        analise_produtos
     ]
 )
 
 pg.run()
+
+#############################################
+st.markdown("""
+<style>
+.stApp {
+    background-color: #76B1EC;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <style>
+        [data-testid="stSidebar"] {
+            background-color: #5BA1E6;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.balloons()

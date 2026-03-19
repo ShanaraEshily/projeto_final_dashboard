@@ -1,6 +1,17 @@
 #Data: 12/03/2026
 
 import streamlit as st
+import time
+
+placeholder = st.empty()
+
+with placeholder.container():
+    st.markdown("![Alt Text](https://media.tenor.com/k5ImtggdKh0AAAAm/melting-snowman.webp)")
+    st.write("Carregando...")
+
+time.sleep(5)
+
+placeholder.empty()
 
 st.set_page_config(
     page_title="Dashboard de Vendas",
@@ -26,9 +37,13 @@ analise_produtos_professor = st.Page('./pages/analise_produtos_professor.py',
                            title='Produtos - Professor',
                            icon='👨🏻‍🏫')
 
-#sobre = st.Page('./pages/sobre.py',
-#                title='Sobre',
-#                icon='𝒊')
+mapa_vendas = st.Page('./pages/mapa_vendas.py',
+                title='Mapa de Vendas',
+                icon='🗺')
+
+sobre = st.Page('./pages/sobre.py',
+                title='Sobre',
+                icon='ℹ️')
 
 #Configurando a navegação entre as páginas
 pg = st.navigation(
@@ -36,12 +51,15 @@ pg = st.navigation(
         visao_geral,
         analise_vendas,
         analise_produtos,
-        analise_produtos_professor
+        analise_produtos_professor,
+        mapa_vendas,
+        sobre
     ]
 )
 
 pg.run()
 
+#𝒊
 #############################################
 st.markdown("""
 <style>
@@ -61,5 +79,3 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-st.snow()

@@ -23,7 +23,7 @@ st.sidebar.header("🏪 Filtros de Vendas")
 st.markdown("""
 <style>
 span[data-baseweb="tag"] {
-  background-color: blue !important;
+  background-color: gray !important;
 }
 </style>
 """, unsafe_allow_html=True) #colocar antes dos filtros pra dar cor

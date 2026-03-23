@@ -18,17 +18,17 @@ st.title("𓁹 𓁹 Visão Geral do Negócio")
 col1, col2, col3, col4 = st.columns(4)
 
 #coluna 1 exibe a receita total, formatada como moeda brasileira
-col1.metric(":violet[💰 Receita Total]", f"R$ {dados_vendas['Vendas'].sum():,.2f}")
+col1.metric("💰 Receita Total", f"R$ {dados_vendas['Vendas'].sum():,.2f}")
 
 #coluna 2 exibe o lucro total, formatado como moeda brasileira
-col2.metric(":orange[💲 Lucro Total]", f"R$ {dados_vendas['Lucro'].sum():,.2f}")
+col2.metric("💲 Lucro Total", f"R$ {dados_vendas['Lucro'].sum():,.2f}")
 
 #coluna 3 exibe o total de transações, que é o número de linhas no dataframe de vendas
-col3.metric(":yellow[💳 Total de Transações]", f"{len(dados_vendas)}")
+col3.metric("💳 Total de Transações", f"{len(dados_vendas)}")
 
 #coluna 4 exibe o ticket médio, que é a média do valor das vendas, formatada como moeda
 #brasileira
-col4.metric(":green[📈 Ticket Médio]", f"R$ {dados_vendas['Vendas'].mean():,.2f}")
+col4.metric("📈 Ticket Médio", f"R$ {dados_vendas['Vendas'].mean():,.2f}")
 
 st.divider()
 

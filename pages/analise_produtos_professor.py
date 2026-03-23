@@ -59,7 +59,7 @@ option = st.selectbox(
 dados_filtrados = dados_vendas[dados_vendas['Produto'] == option]
 
 #utilizado para debugar o código
-# st.table(dados_filtrados.head(10))
+#st.table(dados_filtrados.head(10))
 
 col1, col2, col3, col4 = st.columns(4)
 

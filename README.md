@@ -151,7 +151,7 @@ Análises avançadas com funcionalidades adicionais para fins educacionais:
 - Recursos pedagógicos
 
 ### ℹ️ **Sobre**
-Informações sobre o projeto e desenvolvedor
+Dashboard produzido por Shanara Eshily, aluna de Ciência de Dados
 
 ---
 

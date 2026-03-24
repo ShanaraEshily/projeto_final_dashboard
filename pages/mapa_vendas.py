@@ -32,7 +32,7 @@ with col3:
 
 with col4:
     lucro = dados_filtrados['Lucro'].sum()
-    st.metric("📊Lucro Filtrado", format_brl(lucro))
+    st.metric("📊 Lucro Filtrado", format_brl(lucro))
 
 "--------"
 
@@ -99,6 +99,8 @@ else:
     st.warning("Por favor, selecione um intervalo de datas válido")
     st.stop()
 
+
+
 #Faixa de valor de venda(R$)
 filtro_preco = st.sidebar.slider(
     "Faixa de valor de venda(R$)",
@@ -107,15 +109,48 @@ filtro_preco = st.sidebar.slider(
     value=(157, 11997)
 )
 
+st.markdown("""
+<style>
+.stSlider > div > div > div > div {
+    background: linear-gradient(to right, #7d7979, #4d4848);
+}
+
+.stSlider > div > div > div > div > div {
+    background-color: gray;
+    border: 2px solid black;
+}
+
+</style>
+""", unsafe_allow_html=True) 
+
 ##############################MAPA############################################
 st.subheader("✈︎ Distribuição Geográfica das Transações")
 
-df = pd.DataFrame(
-    rng(0).standard_normal((1000, 2)) / [50, 50] + [37.76, -122.4],
-    columns=["lat", "lon"],
-)
+if "Latitude" in dados_filtrados.columns and "Longitude" in dados_filtrados.columns:
+    
+    fig1 = px.scatter_mapbox(
+        dados_filtrados,
+        lat="Latitude",         
+        lon="Longitude",
+        size='Vendas',
+        color='Lucro',
+        hover_name="Região",     
+        hover_data={
+            "Vendas": True,
+            "Lucro": True,
+            "Latitude": False,  
+            "Longitude": False
+        },
+        color_continuous_scale=px.colors.sequential.Blues_r,
+        size_max=15,
+        zoom=3,
+        mapbox_style="open-street-map"
+    )
 
-st.map(df)
+    st.plotly_chart(fig1, use_container_width=True)
+
+else:
+    st.warning("O dataset precisa conter as colunas 'Latitude' e 'Longitude' para exibir o mapa.")
 
 "--------"
 
